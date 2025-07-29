@@ -9,7 +9,7 @@ classDiagram
         - Account account
         - List~Feature~ features
         - Card card
-        - List<News> news
+        - List~News~ news
     }
 
     class Account {
