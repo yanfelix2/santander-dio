@@ -32,8 +32,13 @@ public class UserController {
                 .buildAndExpand(userCreated.getId())
                 .toUri();
         return ResponseEntity.created(location).body(userCreated);
-
     }
 
+    //TODO: ADICIONAR PUTMAPPING, DELETEMAPPING.
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id){
+        userService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }

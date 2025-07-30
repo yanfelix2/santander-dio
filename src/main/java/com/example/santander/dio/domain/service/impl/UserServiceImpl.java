@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
+
     @Override
     public User create(User userToCreate) {
         if (userRepository.existsByAccountNumber(userToCreate.getAccount().getNumber())){
@@ -31,5 +32,15 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.save(userToCreate);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        boolean exists = userRepository.existsById(id);
+        if (!exists){
+            throw new NoSuchElementException("User with id " + id + " not found");
+        }
+        userRepository.deleteById(id);
+    }
+
 
 }
