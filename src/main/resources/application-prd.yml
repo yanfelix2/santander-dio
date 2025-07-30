@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    url: ${PGDATABASE}
     username: ${PGUSER}
     password: ${PGPASSWORD}
   jpa:
@@ -8,6 +8,5 @@ spring:
     hibernate:
       ddl-auto: validate
       dialect: org.hibernate.dialect.PostgreSQLDialect
-
 server:
-  port: ${PORT:8080}
+  port=${PORT:8080}:
